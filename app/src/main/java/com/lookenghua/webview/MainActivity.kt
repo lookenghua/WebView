@@ -9,10 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import com.lookenghua.webview.routes.WebViewNavHost
 import com.lookenghua.webview.ui.theme.WebviewForAndroidTheme
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Logger.addLogAdapter(AndroidLogAdapter())
         setContent {
             WebviewForAndroidTheme {
                 // A surface container using the 'background' color from the theme
