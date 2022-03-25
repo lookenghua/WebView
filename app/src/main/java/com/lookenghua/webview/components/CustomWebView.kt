@@ -61,9 +61,11 @@ fun CustomWebView(url: String) {
         ): Boolean {
             if (null == request?.url) return false
             val showOverrideUrl = request.url.toString()
+            Logger.i("跳转的页面地址:$showOverrideUrl")
             try {
                 if (!showOverrideUrl.startsWith("http://")
                     && !showOverrideUrl.startsWith("https://")
+                    && !showOverrideUrl.startsWith("file:///")
                 ) {
                     //处理非http和https开头的链接地址
                     Intent(Intent.ACTION_VIEW, Uri.parse(showOverrideUrl)).apply {
